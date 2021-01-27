@@ -4,6 +4,7 @@ import axios from "axios";
 const Table = () => {
   const [users, setUsers] = useState([]);
   const [usersToDisplay, setUsersToDisplay] = useState([]);
+  const [sortDirection, setSortDirection] = useState(["asc"]);
 
   useEffect(() => {
     axios.get("https://randomuser.me/api/?results=50").then((response) => {
@@ -14,6 +15,16 @@ const Table = () => {
   }, []);
 
   const sortByName = () => {
+if (sortDirection === "asc") {
+  sortByNameAsc();
+  setSortDirection("desc");
+} else {
+  sortByNameDesc();
+  setSortDirection("asc");
+}
+  };
+
+  const sortByNameAsc = () => {
     const tempUsers = [...users];
     const sortedUsers = tempUsers.sort((a, b) => {
       const aValue = a.name.first;
@@ -28,7 +39,24 @@ const Table = () => {
     });
     console.log(sortedUsers);
     setUsersToDisplay(sortedUsers);
-  };
+  }
+
+  const sortByNameDesc = () => {
+    const tempUsers = [...users];
+    const sortedUsers = tempUsers.sort((a, b) => {
+      const aValue = a.name.first;
+      const bValue = b.name.first;
+      if (aValue > bValue) {
+        return -1;
+      }
+      if (aValue < bValue) {
+        return 1;
+      }
+      return 0;
+    });
+    console.log(sortedUsers);
+    setUsersToDisplay(sortedUsers);
+  }
 
   return (
     <table className="table table-striped table-dark">

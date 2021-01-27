@@ -2,38 +2,27 @@ import React from "react";
 
 const Table = () => {
   return (
-    <div className="container">
       <table className="table table-striped table-dark">
         <thead>
           <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
+            <th scope="col">ID</th>
+            <th scope="col">Photo</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
+            <th scope="row">20494740-S</th>
+            <td><img src="https://randomuser.me/api/portraits/thumb/men/20.jpg"></img></td>
+            <td>Diego Suarez</td>
+            <td>diego.suarez@example.com</td>
+            <td>674-541-603</td>
           </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-          </tr>
+     
         </tbody>
       </table>
-    </div>
   );
 };
 

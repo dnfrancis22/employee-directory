@@ -2,8 +2,12 @@ import Table from "./components/Table/Table";
 
 function App() {
   return (
-    <div>
-<Table />
+    <div className="container">
+      <div className="row">
+        <div className="col">
+        <Table />
+        </div>
+      </div>
     </div>
   );
 }

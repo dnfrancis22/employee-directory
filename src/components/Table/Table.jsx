@@ -70,13 +70,13 @@ const Table = () => {
       <tbody>
         {users.map((user) => (
           <tr>
-            <th scope="row">20494740-S</th>
+            <th scope="row">{user.id.value}</th>
             <td>
-              <img src="https://randomuser.me/api/portraits/thumb/men/20.jpg"></img>
+              <img src={user.picture.thumbnail} alt={user.name.first}></img>
             </td>
-            <td>Diego Suarez</td>
-            <td>diego.suarez@example.com</td>
-            <td>674-541-603</td>
+            <td>{user.name.first} {user.name.last}</td>
+            <td>{user.email}</td>
+            <td>{user.Phone}</td>
           </tr>
         ))}
       </tbody>

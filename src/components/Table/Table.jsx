@@ -3,16 +3,19 @@ import axios from "axios";
 
 const Table = () => {
   const [users, setUsers] = useState([]);
+  const [usersToDisplay, setUsersToDisplay] = useState([]);
 
   useEffect(() => {
     axios.get("https://randomuser.me/api/?results=50").then((response) => {
+      setUsersToDisplay(response.data.results)
       setUsers(response.data.results);
     });
     //  an empty dependency array inside useEffect mimics componentDidMount with out this it will call an infinite number of times.
   }, []);
 
   const sortByName = () => {
-    const sortedUsers = users.sort((a, b) => {
+    const tempUsers = [...users];
+    const sortedUsers = tempUsers.sort((a, b) => {
       const aValue = a.name.first;
       const bValue = b.name.first;
       if (aValue < bValue) {
@@ -24,6 +27,7 @@ const Table = () => {
       return 0;
     });
     console.log(sortedUsers);
+    setUsersToDisplay(sortedUsers);
   };
 
   return (
@@ -40,8 +44,8 @@ const Table = () => {
         </tr>
       </thead>
       <tbody>
-        {users.map((user) => (
-          <tr key={user.id.value}>
+        {usersToDisplay.map((user, index) => (
+          <tr key={index}>
             <th scope="row">{user.id.value}</th>
             <td>
               <img src={user.picture.thumbnail} alt={user.name.first}></img>

@@ -14,7 +14,7 @@ const Table = () => {
     });
     //  an empty dependency array inside useEffect mimics componentDidMount with out this it will call an infinite number of times.
   }, []);
-// this handles the filtering by phone number once the submit button is click.
+  // this handles the filtering by phone number once the submit button is click.
   const handleSubmit = (e) => {
     e.preventDefault();
     const filteredUsers = users.filter((user) => {
@@ -23,12 +23,12 @@ const Table = () => {
 
     setUsersToDisplay(filteredUsers);
   };
-// this handles the resetting the results from the filtered list to the original api call.
+  // this handles the resetting the results from the filtered list to the original api call.
   const handleReset = () => {
     setUsersToDisplay(users);
   };
 
-      // this is the default sort function. It calls sortByNameAsc or sortByNameDesc depending on the current state.
+  // this is the default sort function. It calls sortByNameAsc or sortByNameDesc depending on the current state.
   const sortByName = () => {
     if (sortDirection === "asc") {
       sortByNameAsc();
@@ -38,7 +38,7 @@ const Table = () => {
       setSortDirection("asc");
     }
   };
-this sorts 
+  // this sorts the list by ascending order when you click on the name.
   const sortByNameAsc = () => {
     const tempUsers = [...users];
     const sortedUsers = tempUsers.sort((a, b) => {
@@ -55,7 +55,7 @@ this sorts
     console.log(sortedUsers);
     setUsersToDisplay(sortedUsers);
   };
-
+  // this sorts the list by descending order if the order is already ascending.
   const sortByNameDesc = () => {
     const tempUsers = [...users];
     const sortedUsers = tempUsers.sort((a, b) => {
@@ -72,7 +72,7 @@ this sorts
     console.log(sortedUsers);
     setUsersToDisplay(sortedUsers);
   };
-
+  // here we return the form field, buttons, and table.
   return (
     <div>
       <div>
@@ -90,7 +90,8 @@ this sorts
           <button
             className="btn btn-secondary"
             onClick={handleReset}
-            type="button">
+            type="button"
+          >
             Reset
           </button>
         </form>
@@ -128,5 +129,5 @@ this sorts
     </div>
   );
 };
-
+// we export the component so we can import into app.js.
 export default Table;

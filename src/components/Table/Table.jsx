@@ -75,26 +75,33 @@ const Table = () => {
   // here we return the form field, buttons, and table.
   return (
     <div>
-      <div>
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            placeholder="Enter phone number to filter"
-            name="searchTerm"
-            value={searchTerm}
-            onChange={(e) => {
-              setSearchTerm(e.target.value);
-            }}
-          ></input>
-          <button className="btn btn-primary">Filter</button>
-          <button
-            className="btn btn-secondary"
-            onClick={handleReset}
-            type="button"
-          >
-            Reset
-          </button>
-        </form>
+      <div className="container">
+        <div className="row">
+          <div className="col" style={{marginTop: 10}}>
+            <form onSubmit={handleSubmit}>
+              <input
+                type="text"
+                placeholder="Enter phone number to filter"
+                name="searchTerm"
+                value={searchTerm}
+                onChange={(e) => {
+                  setSearchTerm(e.target.value);
+                }}
+              ></input>
+              <button className="btn btn-primary">Filter</button>
+              <button
+                className="btn btn-secondary"
+                onClick={handleReset}
+                type="button"
+              >
+                Reset
+              </button>
+            </form>
+          </div>
+          <div className="col">
+            <h1 style={{ textAlign: "right" }}>Employee Directory</h1>
+          </div>
+        </div>
       </div>
       <div>
         <table className="table table-striped table-dark">

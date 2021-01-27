@@ -8,6 +8,7 @@ function App() {
         <Table />
         </div>
       </div>
+
     </div>
   );
 }
